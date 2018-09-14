@@ -1,0 +1,47 @@
+<div class="sign-in-form">
+  <div class="sign-in-form-top">
+    <p><span>Sign In to</span> <a href="index.html">Admin</a></p>
+  </div>
+  <div class="signin">
+    <div class="signin-rit">
+      <span class="checkbox1">
+        <label class="checkbox"><input type="checkbox" name="checkbox" checked="">Forgot Password ?</label>
+      </span>
+      <p><a href="#">Click Here</a> </p>
+      <div class="clearfix"> </div>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="log-input">
+        <div class="log-input-left">
+          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <span class="checkbox2">
+          <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
+        </span>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="log-input">
+        <div class="log-input-left">
+          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
+        </div>
+        <span class="checkbox2">
+          <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
+        </span>
+        <div class="clearfix"> </div>
+      </div>
+      <input type="submit" value="Login to your account">
+    </form>
+  </div>
+  <div class="new_people">
+    <h4>For New People</h4>
+    <p>Having hands on experience in creating innovative designs,I do offer design
+      solutions which harness.</p>
+      <a [routerLink]="['/register']" >Register Now!</a>
+    </div>
+  </div>
