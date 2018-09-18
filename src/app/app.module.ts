@@ -17,6 +17,8 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { BlankComponent } from './blank';
+import { ProjectComponent } from './project';
+import { DashboardComponent } from './dashboard';
 
 @NgModule({
     imports: [
@@ -31,7 +33,9 @@ import { BlankComponent } from './blank';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        BlankComponent
+        BlankComponent,
+        ProjectComponent,
+        DashboardComponent
     ],
     providers: [
         AuthGuard,

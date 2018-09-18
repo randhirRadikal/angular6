@@ -4,6 +4,8 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { BlankComponent } from './blank';
+import { ProjectComponent } from './project';
+import { DashboardComponent } from './dashboard';
 import { AuthGuard } from './_guards';
 
 const appRoutes: Routes = [
@@ -11,8 +13,10 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'blank', component: BlankComponent },
+    { path: 'project', component: ProjectComponent },
+    { path: 'dashboard', component: DashboardComponent },
 
-    // otherwise redirect to home
+    // otherwise redirect to blank
     { path: '**', redirectTo: 'blank' }
 ];
 

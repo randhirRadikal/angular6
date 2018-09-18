@@ -6,8 +6,8 @@ import { first } from 'rxjs/operators';
 import { User } from '../_models';
 import { UserService } from '../_services';
 
-@Component({templateUrl: 'home.component.html'})
-export class HomeComponent implements OnInit {
+@Component({templateUrl: 'dashboard.component.html'})
+export class DashboardComponent implements OnInit {
     currentUser: User;
     users: User[] = [];
     isUserLogin=false;

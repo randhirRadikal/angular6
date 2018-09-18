@@ -6,10 +6,10 @@
 4. Material Design style
 -------------------------------------------------------------------*/
 /*---------------------------
-1. Bootstrap Extension 
+1. Bootstrap Extension
 ---------------------------*/
 /*
-Base 
+Base
 */
 html {
   background: transparent; }
@@ -120,7 +120,7 @@ sup {
     float: left !important; } }
 
 /*
-Label 
+Label
 */
 .label {
   display: inline-block;
@@ -167,7 +167,7 @@ Label
   top: -1px; }
 
 /*
-Buttons 
+Buttons
 */
 .btn {
   font-weight: 500;
@@ -293,13 +293,13 @@ Buttons
   min-width: 7rem; }
 
 /*
-Card 
+Card
 */
 .card {
   border-color: rgba(120, 130, 140, 0.13); }
 
 /*
-Carousel 
+Carousel
 */
 .carousel-control .glyphicon {
   position: absolute;
@@ -311,7 +311,7 @@ Carousel
   margin-left: -10px; }
 
 /*
-Dropdown menu 
+Dropdown menu
 */
 .dropdown-menu {
   font-size: 0.875rem;
@@ -459,7 +459,7 @@ Dropdown menu
     right: 0; } }
 
 /*
-Form 
+Form
 */
 .form-control {
   border-color: rgba(120, 130, 140, 0.2);
@@ -533,7 +533,7 @@ input:checked + .active-checked {
   opacity: 1; }
 
 /*
-List Group 
+List Group
 */
 .list-group {
   border-radius: 3px;
@@ -599,7 +599,7 @@ a.list-group-item {
     background-color: rgba(0, 0, 0, 0.065); }
 
 /*
-Modal 
+Modal
 */
 .modal .modal-left {
   -webkit-transform: translate3d(-100%, 0, 0);
@@ -766,7 +766,7 @@ Modal
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 /*
-Modal animation 
+Modal animation
 */
 .modal.animate .modal-dialog {
   -webkit-transform: translate(0, 0);
@@ -886,7 +886,7 @@ Modal animation
   animation: rotateIn 0.5s; }
 
 /*
-Nav 
+Nav
 */
 .nav {
   border: inherit; }
@@ -990,7 +990,7 @@ Nav
     content: '/ '; }
 
 /*
-Navbar 
+Navbar
 */
 .navbar {
   border: none;
@@ -1072,7 +1072,7 @@ Navbar
     padding-right: 0; } }
 
 /*
-Pager 
+Pager
 */
 .pagination .page-item,
 .pagination > li > a,
@@ -1175,7 +1175,7 @@ Pager
   float: left; }
 
 /*
-Progress 
+Progress
 */
 .progress[value]::-webkit-progress-bar {
   background-color: rgba(0, 0, 0, 0.065); }
@@ -1239,7 +1239,7 @@ Progress
     background-position: 0 0; } }
 
 /*
-Row 
+Row
 */
 .col-0 {
   clear: left; }
@@ -1316,7 +1316,7 @@ Row
       padding-right: 4px; } }
 
 /*
-Table 
+Table
 */
 .panel .table {
   border-color: rgba(120, 130, 140, 0.045) !important; }
@@ -1885,7 +1885,7 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: inherit;
+  left: 72px;
   right: 0;
   overflow: auto; }
 
@@ -4000,7 +4000,9 @@ Border
   border-right: 1px solid rgba(120, 130, 140, 0.13); }
 
 .b-b {
-  border-bottom: 1px solid rgba(120, 130, 140, 0.13); }
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+      padding-left: 74px;
+}
 
 .b-l {
   border-left: 1px solid rgba(120, 130, 140, 0.13); }
