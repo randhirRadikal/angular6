@@ -19,6 +19,8 @@ import { RegisterComponent } from './register';
 import { BlankComponent } from './blank';
 import { ProjectComponent } from './project';
 import { DashboardComponent } from './dashboard';
+import { MessageComponent } from './message';
+import { InboxComponent } from './inbox';
 
 @NgModule({
     imports: [
@@ -35,6 +37,8 @@ import { DashboardComponent } from './dashboard';
         RegisterComponent,
         BlankComponent,
         ProjectComponent,
+        MessageComponent,
+        InboxComponent,
         DashboardComponent
     ],
     providers: [
