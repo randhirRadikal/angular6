@@ -20,6 +20,9 @@ import { BlankComponent } from './blank';
 import { ProjectComponent } from './project';
 import { DashboardComponent } from './dashboard';
 import { MessageComponent } from './message';
+import { ContactComponent } from './contact';
+import { ProfileComponent } from './profile';
+import { SettingComponent } from './setting';
 import { InboxComponent } from './inbox';
 
 @NgModule({
@@ -39,6 +42,9 @@ import { InboxComponent } from './inbox';
         ProjectComponent,
         MessageComponent,
         InboxComponent,
+        ContactComponent,
+        ProfileComponent,
+        SettingComponent,
         DashboardComponent
     ],
     providers: [
