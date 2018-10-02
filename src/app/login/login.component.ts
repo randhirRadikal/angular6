@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
     submitted = false;
     returnUrl: string;
     isUserLogin=false;
+	isError = false;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -45,15 +46,20 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true;
-        console.log(this.f);
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+					if(data.error){
+						this.isError = data.data;
+						this.loading = false;
+					}else{
+						this.router.navigate([this.returnUrl]);
+
+					}
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.isError = error.data;
                     this.loading = false;
                 });
     }

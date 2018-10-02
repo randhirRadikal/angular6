@@ -13,6 +13,8 @@ export class ProjectComponent implements OnInit {
     isUserLogin=false;
     searchForm: FormGroup;
     submitted= false;
+	isFormNumber=1;
+	isNewRegister=false;
 
     constructor(private userService: UserService,  private formBuilder: FormBuilder,) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -39,8 +41,16 @@ export class ProjectComponent implements OnInit {
         });
     }
 
-    onSearch() {
-        this.submitted = true;
-        alert(1);
+    onSubmit1() {
+        //this.submitted = true;
+        this.isFormNumber = 2;
+    }
+	onSubmit2() {
+        //this.submitted = true;
+        this.isFormNumber = 3;
+    }
+	onSubmit3() {
+        //this.submitted = true;
+        this.isFormNumber = 1;
     }
 }

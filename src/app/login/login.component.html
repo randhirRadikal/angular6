@@ -27,6 +27,9 @@
       <div class="m-y text-sm">
         OR
       </div>
+	  <div class="row" *ngIf="isError">
+		  <span class="text-danger">{{isError}}</span>
+	  </div>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username"/>

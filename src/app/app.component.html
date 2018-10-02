@@ -24,45 +24,58 @@
             </li>
             <li>
               <a [routerLink]="['/dashboard']" class="b-danger">
-                <span class="nav-icon text-white no-fade">
-                  <i class="ion-filing"></i>
+                <span class="nav-icon text-white no-fade" style="background:red;">
+                  <i class="fa fa-pencil" style="font-size:15px;color:black;"></i>
                 </span>
                 <span class="nav-text">Dashboard</span>
               </a>
             </li>
             <li>
               <a [routerLink]="['/project']" class="b-success">
-                <span class="nav-icon text-white no-fade">
-                  <i class="ion-android-apps"></i>
+                <span class="nav-icon text-white no-fade" style="background:#5b9bd5;">
+                  <i class="fa fa-search" style="font-size:15px;color:black;"></i>
                 </span>
                 <span class="nav-text">Projects</span>
               </a>
             </li>
             <li>
               <a [routerLink]="['/inbox']" class="b-info">
-                <span class="nav-icon text-white no-fade">
-                  <i class="ion-email"></i>
+                <span class="nav-icon text-white no-fade" style="background:rgb(216,216,216);">
+                  <i class="fa fa-file" style="font-size:15px;color:black;"></i>
                 </span>
                 <span class="nav-text">Inbox</span>
               </a>
             </li>
-            <li>
-              <a [routerLink]="['/message']" class="b-default">
-                <span class="nav-label">
-                  <b class="label label-xs rounded danger"></b>
+			<li>
+              <a [routerLink]="['/message']" class="b-info">
+                <span class="nav-icon text-white no-fade" style="background:rgb(112,48,160);">
+                  <i class="fa fa-star" style="font-size:15px;color:black;"></i>
                 </span>
-                <span class="nav-icon">
-                  <i class="ion-chatbubble-working"></i>
-                </span>
-                <span class="nav-text">Messages</span>
+                <span class="nav-text">Message</span>
               </a>
             </li>
-            <li>
-              <a [routerLink]="['/contact']" class="b-default">
-                <span class="nav-icon">
-                  <i class="ion-person"></i>
+			<li>
+              <a [routerLink]="['/contact']" class="b-info">
+                <span class="nav-icon text-white no-fade" style="background:#4472c4;">
+                  <i class="fa fa-user" style="font-size:15px;color:black;"></i>
                 </span>
                 <span class="nav-text">Contacts</span>
+              </a>
+            </li>
+			<li>
+              <a [routerLink]="['/message']" class="b-info">
+                <span class="nav-icon text-white no-fade" style="background:#ffc000;">
+                  <i class="fa fa-shopping-cart" style="font-size:15px;color:black;"></i>
+                </span>
+                <span class="nav-text">Message</span>
+              </a>
+            </li>
+			<li>
+              <a [routerLink]="['/message']" class="b-info">
+                <span class="nav-icon text-white no-fade" style="background:background:rgb(47,84,150);;">
+                  <i class="fa  fa-cog" style="font-size:15px;color:black;"></i>
+                </span>
+                <span class="nav-text">Message</span>
               </a>
             </li>
           </ul>

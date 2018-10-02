@@ -1,883 +1,244 @@
+<div class="app-header white bg b-b">
+	  <div class="navbar" data-pjax>
+			<a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
+			  <i class="ion-navicon"></i>
+			</a>
+			<div class="navbar-item pull-left h5" id="pageTitle">Validation</div>
+	  </div>
+</div>
+<div class="app-footer white bg p-a b-t">
+  <div class="pull-right text-sm text-muted">Version 1.0.1</div>
+  <span class="text-sm text-muted">&copy; Copyright.</span>
+</div>
+<div class="app-body">
+	<!-- ############ PAGE START-->
+	<div class="padding">
+		<div class="row">
+			<div class="col-sm-4">
+			</div>
+			<div class="col-sm-4">
+				<div class="row">
+					<div class="col-sm-4">
+						<div [ngClass]="(isFormNumber==1)?'md-btn md-fab m-b-sm red':'md-btn md-fab m-b-sm black'" (click)="onSubmit3()">
+							1
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div [ngClass]="(isFormNumber==2)?'md-btn md-fab m-b-sm red':'md-btn md-fab m-b-sm black'" (click)="onSubmit1()">
+							2
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div [ngClass]="(isFormNumber==3)?'md-btn md-fab m-b-sm red':'md-btn md-fab m-b-sm black'" (click)="onSubmit2()">
+							3
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
 
+			</div>
+			<div class="col-sm-6">
+			  	<div *ngIf="isFormNumber == 1">
+					<div *ngIf="isNewRegister">
+						<form [formGroup]="searchForm" (ngSubmit)="onSubmit1()">
+			  				<div class="box">
+			  				  <div class="box-header">
+			  					<h2>New Patient</h2>
+			  				  </div>
+			  				  <div class="box-body">
+			  					<div class="form-group">
+			  					  <label>Select an already registered patient</label>
+								  <select id="single" class="form-control select2" data-ui-jp="select2" data-ui-options="{theme: 'bootstrap'}">
+									  <option value="a">A</option>
+									  <option value="b">B</option>
+									  <option value="c">C</option>
+								  </select>
+			  					</div>
+			  				  </div>
+			  				  <div class=" p-a text-right">
+			  					<button type="submit" [disabled]="submitted" class="btn info">Submit</button>
+								<img *ngIf="submitted" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+			  				  </div>
+			  				</div>
+			  			</form>
+					</div>
+					<div *ngIf="!isNewRegister">
+						<form [formGroup]="searchForm" (ngSubmit)="onSubmit1()">
+			  				<div class="box">
+			  				  <div class="box-header">
+			  					<h2>New Patient</h2>
+			  				  </div>
+			  				  <div class="box-body">
+			  					<div class="form-group">
+			  					  <label>Name</label>
+			  					  <input type="text" class="form-control" required>
+			  					</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-sm-3">
+											<label>Sex</label>
+										</div>
+										<div class="col-sm-8">
+											<input type="radio" value="option1"> Male
+											<input type="radio" value="option2"> Female
+										</div>
+									</div>
+			  					</div>
+			  					<div class="form-group">
+			  					  <label>Age</label>
+			  					  <input type="number" class="form-control" required>
+			  					</div>
+								<div class="form-group">
+			  					  <label>Years of Study</label>
+			  					  <input type="number" class="form-control" required>
+			  					</div>
+			  					<!-- <div class="row m-b">
+			  					  <div class="col-sm-6">
+			  						<label>Enter password</label>
+			  						<input type="password" class="form-control" required id="pwd">
+			  					  </div>
+			  					  <div class="col-sm-6">
+			  						<label>Confirm password</label>
+			  						<input type="password" class="form-control" data-parsley-equalto="#pwd" required>
+			  					  </div>
+			  					</div> -->
+			  					<div class="form-group">
+			  					  	<label>Laterality</label>
+								  	<select id="single" class="form-control select2" data-ui-jp="select2" data-ui-options="{theme: 'bootstrap'}">
+										<option value="left_handed">Left Handed</option>
+							            <option value="right_handed">Right Handed</option>
+							            <option value="both">Both</option>
+							        </select>
+			  					</div>
+								<div class="form-group">
+			  					  	<label>State in which you lived most of their life</label>
+								  	<select id="single" class="form-control select2" data-ui-jp="select2" data-ui-options="{theme: 'bootstrap'}">
+										<option value="CA">Sao Paulo</option>
+							            <option value="NV">Minas Gerais</option>
+							            <option value="OR">Bahia</option>
+							        </select>
+			  					</div>
+								<div class="form-group">
+			  					  	<label>State in which they live now</label>
+								  	<select id="single" class="form-control select2" data-ui-jp="select2" data-ui-options="{theme: 'bootstrap'}">
+										<option value="CA">Sao Paulo</option>
+							            <option value="NV">Minas Gerais</option>
+							            <option value="OR">Bahia</option>
+							        </select>
+			  					</div>
+								<div class="form-group">
+			  					  	<label>Comment</label>
+								  	<textarea class="form-control" rows="6" data-minwords="6" required placeholder="Type your message"></textarea>
+			  					</div>
+			  					<!-- <div class="checkbox">
+			  					  <label class="ui-check">
+			  						<input type="checkbox" name="check" checked required="true"><i></i> I agree to the <a href="#" class="text-info">Terms of Service</a>
+			  					  </label>
+			  					</div> -->
+			  				  </div>
+			  				  <div class=" p-a text-right">
+			  					<button type="submit" [disabled]="submitted" class="btn info">Submit</button>
+								<img *ngIf="submitted" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+			  				  </div>
+			  				</div>
+			  			</form>
+					</div>
+			  	</div>
+				<div *ngIf="isFormNumber == 2">
+					<form [formGroup]="searchForm" (ngSubmit)="onSubmit2()">
+		  				<div class="box">
+		  				  <div class="box-header">
+		  					<h2>Register2</h2>
+		  				  </div>
+		  				  <div class="box-body">
+		  					<p class="text-muted">Please fill the information to continue</p>
+		  					<div class="form-group">
+		  					  <label>Username</label>
+		  					  <input type="text" class="form-control" required>
+		  					</div>
+		  					<div class="form-group">
+		  					  <label>Email</label>
+		  					  <input type="email" class="form-control" required>
+		  					</div>
+		  					<div class="row m-b">
+		  					  <div class="col-sm-6">
+		  						<label>Enter password</label>
+		  						<input type="password" class="form-control" required id="pwd">
+		  					  </div>
+		  					  <div class="col-sm-6">
+		  						<label>Confirm password</label>
+		  						<input type="password" class="form-control" data-parsley-equalto="#pwd" required>
+		  					  </div>
+		  					</div>
+		  					<div class="form-group">
+		  					  <label>Phone</label>
+		  					  <input type="number" class="form-control" placeholder="XXX XXXX XXX" required>
+		  					</div>
+		  					<div class="checkbox">
+		  					  <label class="ui-check">
+		  						<input type="checkbox" name="check" checked required="true"><i></i> I agree to the <a href="#" class="text-info">Terms of Service</a>
+		  					  </label>
+		  					</div>
+		  				  </div>
+		  				  <div class=" p-a text-right">
+		  					<button type="submit" [disabled]="submitted" class="btn info">Submit</button>
+							<img *ngIf="submitted" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+		  				  </div>
+		  				</div>
+		  			</form>
+			  	</div>
+				<div *ngIf="isFormNumber == 3">
+					<form [formGroup]="searchForm" (ngSubmit)="onSubmit3()">
+		  				<div class="box">
+		  				  <div class="box-header">
+		  					<h2>Register3</h2>
+		  				  </div>
+		  				  <div class="box-body">
+		  					<p class="text-muted">Please fill the information to continue</p>
+		  					<div class="form-group">
+		  					  <label>Username</label>
+		  					  <input type="text" class="form-control" required>
+		  					</div>
+		  					<div class="form-group">
+		  					  <label>Email</label>
+		  					  <input type="email" class="form-control" required>
+		  					</div>
+		  					<div class="row m-b">
+		  					  <div class="col-sm-6">
+		  						<label>Enter password</label>
+		  						<input type="password" class="form-control" required id="pwd">
+		  					  </div>
+		  					  <div class="col-sm-6">
+		  						<label>Confirm password</label>
+		  						<input type="password" class="form-control" data-parsley-equalto="#pwd" required>
+		  					  </div>
+		  					</div>
+		  					<div class="form-group">
+		  					  <label>Phone</label>
+		  					  <input type="number" class="form-control" placeholder="XXX XXXX XXX" required>
+		  					</div>
+		  					<div class="checkbox">
+		  					  <label class="ui-check">
+		  						<input type="checkbox" name="check" checked required="true"><i></i> I agree to the <a href="#" class="text-info">Terms of Service</a>
+		  					  </label>
+		  					</div>
+		  				  </div>
+		  				  <div class=" p-a text-right">
+		  					<button type="submit" [disabled]="submitted" class="btn info">Submit</button>
+							<img *ngIf="submitted" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+		  				  </div>
+		  				</div>
+		  			</form>
+			  	</div>
+			</div>
+			<div class="col-sm-3">
 
-  <!-- content -->
-<div>
-  <div class="app-header hidden-lg-up black lt b-b">
-    <div class="navbar" data-pjax>
-      <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
-        <i class="ion-navicon"></i>
-      </a>
-      <div class="navbar-item pull-left h5" id="pageTitle">Project</div>
-      <!-- nabar right -->
-      <ul class="nav navbar-nav pull-right">
-        <li class="nav-item dropdown pos-stc-xs">
-          <a class="nav-link" data-toggle="dropdown">
-            <i class="ion-android-search w-24"></i>
-          </a>
-          <div class="dropdown-menu text-color w-md animated fadeInUp pull-right">
-            <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
-              <div class="form-group l-h m-a-0">
-                <div class="input-group">
-                  <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-                  <span class="input-group-btn">
-                    <button type="submit" class="btn white b-a no-shadow"><i class="fa fa-search"></i></button>
-                  </span>
-                </div>
-              </div>
-            </form>
-          </div>
-        </li>
-        <li class="nav-item dropdown pos-stc-xs">
-          <a class="nav-link clear" data-toggle="dropdown">
-            <i class="ion-android-notifications-none w-24"></i>
-            <span class="label up p-a-0 danger"></span>
-          </a>
-          <!-- dropdown -->
-          <div class="dropdown-menu pull-right w-xl animated fadeIn no-bg no-border no-shadow">
-            <div class="scrollable" style="max-height: 220px">
-              <ul class="list-group list-group-gap m-a-0">
-                <li class="list-group-item dark-white box-shadow-z0 b">
-                  <span class="pull-left m-r">
-                    <img src="assets/images/a0.jpg" alt="..." class="w-40 img-circle">
-                  </span>
-                  <span class="clear block">
-                    Use awesome <a href="#" class="text-primary">animate.css</a><br>
-                    <small class="text-muted">10 minutes ago</small>
-                  </span>
-                </li>
-                <li class="list-group-item dark-white box-shadow-z0 b">
-                  <span class="pull-left m-r">
-                    <img src="assets/images/a1.jpg" alt="..." class="w-40 img-circle">
-                  </span>
-                  <span class="clear block">
-                    <a href="#" class="text-primary">Joe</a> Added you as friend<br>
-                    <small class="text-muted">2 hours ago</small>
-                  </span>
-                </li>
-                <li class="list-group-item dark-white text-color box-shadow-z0 b">
-                  <span class="pull-left m-r">
-                    <img src="assets/images/a2.jpg" alt="..." class="w-40 img-circle">
-                  </span>
-                  <span class="clear block">
-                    <a href="#" class="text-primary">Danie</a> sent you a message<br>
-                    <small class="text-muted">1 day ago</small>
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- / dropdown -->
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link clear" data-toggle="dropdown">
-            <span class="avatar w-32">
-              <img src="assets/images/a3.jpg" class="w-full rounded" alt="...">
-            </span>
-          </a>
-          <div class="dropdown-menu w dropdown-menu-scale pull-right">
-            <a class="dropdown-item" href="profile.html">
-              <span>Profile</span>
-            </a>
-            <a class="dropdown-item" href="setting.html">
-              <span>Settings</span>
-            </a>
-            <a class="dropdown-item" href="app.inbox.html">
-              <span>Inbox</span>
-            </a>
-            <a class="dropdown-item" href="app.message.html">
-              <span>Message</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="docs.html">
-              Need help?
-            </a>
-            <a class="dropdown-item" href="signin.html">Sign out</a>
-          </div>
-        </li>
-      </ul>
-      <!-- / navbar right -->
-    </div>
-  </div>
-  <div class="app-body">
-
-    <!-- ############ PAGE START-->
-
-    <div class="app-body-inner">
-      <div class="row-col">
-        <div class="col-xs-3 w-xl modal fade aside aside-lg" id="subnav">
-          <div class="row-col black b-r bg">
-            <div class="b-b">
-              <div class="navbar no-radius">
-                <!-- nabar right -->
-                <ul class="nav navbar-nav pull-right m-l">
-                  <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown">
-                      <span class="btn btn-xs white rounded dropdown-toggle">
-                        New
-                      </span>
-                    </a>
-                    <div class="dropdown-menu text-color pull-right" role="menu">
-                      <a class="dropdown-item">
-                        <i class="fa fa-inbox"></i>
-                        New project
-                      </a>
-                      <a class="dropdown-item">
-                        <i class="fa fa-check-square-o"></i>
-                        New task
-                      </a>
-                      <a class="dropdown-item">
-                        <i class="fa fa-file-o"></i>
-                        New note
-                      </a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item">
-                        <i class="fa fa-comment-o"></i>
-                        Message
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-                <!-- / navbar right -->
-                <!-- link and dropdown -->
-                <ul class="nav navbar-nav">
-                  <li class="nav-item">
-                    <span class="navbar-item text-md">Projects</span>
-                  </li>
-                </ul>
-                <!-- / link and dropdown -->
-              </div>
-            </div>
-            <!-- flex content -->
-            <div class="row-row">
-              <div class="row-body scrollable hover">
-                <div class="row-inner">
-                  <!-- left content -->
-                  <div class="list" data-ui-list="b-r b-2x b-theme">
-                    <div class="list-item ">
-                      <div class="list-left">
-                        <span class="w-40 avatar circle lt">
-                          <span class="fa fa-twitter text-md"></span>
-                        </span>
-                      </div>
-                      <div class="list-body">
-                        <div class="pull-right dropdown">
-                          <a href="#" data-toggle="dropdown" class="text-muted"><i class="fa fa-fw fa-ellipsis-h"></i></a>
-                          <div class="dropdown-menu pull-right text-color" role="menu">
-                            <a class="dropdown-item">
-                              <i class="fa fa-tag"></i>
-                              Tag item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-pencil"></i>
-                              Edit item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-trash"></i>
-                              Delete item
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item">
-                              <i class="fa fa-ellipsis-h"></i>
-                              More action
-                            </a>
-                          </div>
-                        </div>
-                        <div class="item-title">
-                          <a href="#" class="_500">Twitter connect</a>
-                        </div>
-                        <small class="block text-ellipsis">
-                          <span class="text-xs">
-                            50
-                          </span> <span class="text-muted">completed</span>
-                        </small>
-
-                        <div class="progress-xxs m-y-sm lter progress w-sm">
-                          <div class="progress-bar success" data-toggle="tooltip" title="Finished: 44%" style="width: 19%;">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item ">
-                      <div class="list-left">
-                        <span class="w-40 avatar circle lt">
-                          <span class="fa fa-youtube-play text-md"></span>
-                        </span>
-                      </div>
-                      <div class="list-body">
-                        <div class="pull-right dropdown">
-                          <a href="#" data-toggle="dropdown" class="text-muted"><i class="fa fa-fw fa-ellipsis-h"></i></a>
-                          <div class="dropdown-menu pull-right text-color" role="menu">
-                            <a class="dropdown-item">
-                              <i class="fa fa-tag"></i>
-                              Tag item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-pencil"></i>
-                              Edit item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-trash"></i>
-                              Delete item
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item">
-                              <i class="fa fa-ellipsis-h"></i>
-                              More action
-                            </a>
-                          </div>
-                        </div>
-                        <div class="item-title">
-                          <a href="#" class="_500">Youtube ads</a>
-                        </div>
-                        <small class="block text-ellipsis">
-                          <span class="text-xs">
-                            5
-                          </span> <span class="text-muted">open tasks, </span>
-                          <span class="text-xs">
-                            20
-                          </span> <span class="text-muted">completed</span>
-                        </small>
-
-                        <div class="progress-xxs m-y-sm lter progress w-sm">
-                          <div class="progress-bar success" data-toggle="tooltip" title="Finished: 34%" style="width: 41%;">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item ">
-                      <div class="list-left">
-                        <span class="w-40 avatar circle lt">
-                          <span class="fa fa-paypal text-md"></span>
-                        </span>
-                      </div>
-                      <div class="list-body">
-                        <div class="pull-right dropdown">
-                          <a href="#" data-toggle="dropdown" class="text-muted"><i class="fa fa-fw fa-ellipsis-h"></i></a>
-                          <div class="dropdown-menu pull-right text-color" role="menu">
-                            <a class="dropdown-item">
-                              <i class="fa fa-tag"></i>
-                              Tag item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-pencil"></i>
-                              Edit item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-trash"></i>
-                              Delete item
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item">
-                              <i class="fa fa-ellipsis-h"></i>
-                              More action
-                            </a>
-                          </div>
-                        </div>
-                        <div class="item-title">
-                          <a href="#" class="_500">Paypal integration</a>
-                        </div>
-                        <small class="block text-ellipsis">
-                          <span class="text-xs">
-                            2
-                          </span> <span class="text-muted">open tasks, </span>
-                          <span class="text-xs">
-                            5
-                          </span> <span class="text-muted">completed</span>
-                        </small>
-
-                        <div class="progress-xxs m-y-sm lter progress w-sm">
-                          <div class="progress-bar success" data-toggle="tooltip" title="Finished: 22%" style="width: 33%;">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item ">
-                      <div class="list-left">
-                        <span class="w-40 avatar circle lt">
-                          <span class="fa fa-android text-md"></span>
-                        </span>
-                      </div>
-                      <div class="list-body">
-                        <div class="pull-right dropdown">
-                          <a href="#" data-toggle="dropdown" class="text-muted"><i class="fa fa-fw fa-ellipsis-h"></i></a>
-                          <div class="dropdown-menu pull-right text-color" role="menu">
-                            <a class="dropdown-item">
-                              <i class="fa fa-tag"></i>
-                              Tag item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-pencil"></i>
-                              Edit item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-trash"></i>
-                              Delete item
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item">
-                              <i class="fa fa-ellipsis-h"></i>
-                              More action
-                            </a>
-                          </div>
-                        </div>
-                        <div class="item-title">
-                          <a href="#" class="_500">Android game app</a>
-                        </div>
-                        <small class="block text-ellipsis">
-                          <span class="text-xs">
-                            30
-                          </span> <span class="text-muted">open tasks, </span>
-                          <span class="text-xs">
-                            4
-                          </span> <span class="text-muted">completed</span>
-                        </small>
-
-                        <div class="progress-xxs m-y-sm lter progress w-sm">
-                          <div class="progress-bar success" data-toggle="tooltip" title="Finished: 7%" style="width: 19%;">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item ">
-                      <div class="list-left">
-                        <span class="w-40 avatar circle lt">
-                          <span class="fa fa-apple text-md"></span>
-                        </span>
-                      </div>
-                      <div class="list-body">
-                        <div class="pull-right dropdown">
-                          <a href="#" data-toggle="dropdown" class="text-muted"><i class="fa fa-fw fa-ellipsis-h"></i></a>
-                          <div class="dropdown-menu pull-right text-color" role="menu">
-                            <a class="dropdown-item">
-                              <i class="fa fa-tag"></i>
-                              Tag item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-pencil"></i>
-                              Edit item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-trash"></i>
-                              Delete item
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item">
-                              <i class="fa fa-ellipsis-h"></i>
-                              More action
-                            </a>
-                          </div>
-                        </div>
-                        <div class="item-title">
-                          <a href="#" class="_500">IOS application</a>
-                        </div>
-                        <small class="block text-ellipsis">
-                          <span class="text-xs">
-                            5
-                          </span> <span class="text-muted">completed</span>
-                        </small>
-
-                        <div class="progress-xxs m-y-sm lter progress w-sm">
-                          <div class="progress-bar success" data-toggle="tooltip" title="Finished: 20%" style="width: 12%;">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item ">
-                      <div class="list-left">
-                        <span class="w-40 avatar circle lt">
-                          <span class="fa fa-tumblr text-md"></span>
-                        </span>
-                      </div>
-                      <div class="list-body">
-                        <div class="pull-right dropdown">
-                          <a href="#" data-toggle="dropdown" class="text-muted"><i class="fa fa-fw fa-ellipsis-h"></i></a>
-                          <div class="dropdown-menu pull-right text-color" role="menu">
-                            <a class="dropdown-item">
-                              <i class="fa fa-tag"></i>
-                              Tag item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-pencil"></i>
-                              Edit item
-                            </a>
-                            <a class="dropdown-item">
-                              <i class="fa fa-trash"></i>
-                              Delete item
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item">
-                              <i class="fa fa-ellipsis-h"></i>
-                              More action
-                            </a>
-                          </div>
-                        </div>
-                        <div class="item-title">
-                          <a href="#" class="_500">Tumblr theme</a>
-                        </div>
-                        <small class="block text-ellipsis">
-                          <span class="text-xs">
-                            8
-                          </span> <span class="text-muted">open tasks, </span>
-                          <span class="text-xs">
-                            5
-                          </span> <span class="text-muted">completed</span>
-                        </small>
-
-                        <div class="progress-xxs m-y-sm lter progress w-sm">
-                          <div class="progress-bar success" data-toggle="tooltip" title="Finished: 23%" style="width: 41%;">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- / -->
-                </div>
-              </div>
-            </div>
-            <!-- / -->
-            <!-- footer -->
-            <div class="p-a b-t clearfix">
-              <div class="btn-group pull-right">
-                <a href="#" class="btn btn-xs white circle"><i class="fa fa-fw fa-angle-left"></i></a>
-                <a href="#" class="btn btn-xs white circle"><i class="fa fa-fw fa-angle-right"></i></a>
-              </div>
-              <span class="text-sm text-muted">Total: <strong>4</strong></span>
-            </div>
-            <!-- / -->
-          </div>
-        </div>
-        <div class="col-xs-4 modal fade aside aside-sm" id="list">
-          <div class="row-col b-r light lt">
-            <div class="b-b">
-              <div class="navbar no-radius">
-                <a data-toggle="modal" data-target="#subnav" data-ui-modal class="navbar-item pull-left hidden-xl-up hidden-sm-down">
-                  <span class="btn btn-sm btn-icon blue">
-                    <i class="fa fa-th"></i>
-                  </span>
-                </a>
-                <!-- nabar right -->
-                <ul class="nav navbar-nav pull-right m-l">
-                  <li class="nav-item dropdown">
-                    <a class="nav-link text-muted" href="#" data-toggle="dropdown">
-                      <i class="fa fa-ellipsis-h"></i>
-                    </a>
-                    <div class="dropdown-menu pull-right text-color" role="menu">
-                      <a class="dropdown-item">
-                        <i class="fa fa-tag"></i>
-                        Tag item
-                      </a>
-                      <a class="dropdown-item">
-                        <i class="fa fa-pencil"></i>
-                        Edit item
-                      </a>
-                      <a class="dropdown-item">
-                        <i class="fa fa-trash"></i>
-                        Delete item
-                      </a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item">
-                        <i class="fa fa-ellipsis-h"></i>
-                        More action
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-                <!-- / navbar right -->
-                <!-- link and dropdown -->
-                <ul class="nav navbar-nav">
-                  <li class="nav-item">
-                    <span class="navbar-item m-r-0 text-md">Tasks</span>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link">
-                      <span class="label rounded">
-                        55
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-                <!-- / link and dropdown -->
-              </div>
-            </div>
-            <!-- flex content -->
-            <div class="row-row">
-              <div class="row-body scrollable hover">
-                <div class="row-inner">
-                  <!-- content -->
-                  <div class="list" data-ui-list="b-r b-2x b-theme">
-                    <div class="list-item row-col">
-                      <div class="col-xs">
-                        <label class="md-check p-r-xs">
-                          <input type="checkbox">
-                          <i></i>
-                        </label>
-                      </div>
-                      <div class="list-body col-xs">
-                        <a href="#" class="item-title _500">Wireframes for app landing page</a>
-                        <div class="text-muted text-xs">
-                          <i class="fa fa-clock-o"></i> 10:30 pm, 24 July
-                        </div>
-                        <div class="dropdown m-t-xs">
-                          <a href="#" data-toggle="dropdown">
-                            <span class="label warn rounded dropdown-toggle">In progress</span>
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-accent"></i>Active
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-warn"></i>In progress
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-success"></i>Completed
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-muted"></i>Archived
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item row-col">
-                      <div class="col-xs">
-                        <label class="md-check p-r-xs">
-                          <input type="checkbox">
-                          <i></i>
-                        </label>
-                      </div>
-                      <div class="list-body col-xs">
-                        <a href="#" class="item-title _500">Backend development</a>
-                        <div class="text-muted text-xs">
-                          <i class="fa fa-clock-o"></i> 10:30 pm, 24 July
-                        </div>
-                        <div class="dropdown m-t-xs">
-                          <a href="#" data-toggle="dropdown">
-                            <span class="label accent rounded dropdown-toggle">Active</span>
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-accent"></i>Active
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-warn"></i>In progress
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-success"></i>Completed
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-muted"></i>Archived
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item row-col">
-                      <div class="col-xs">
-                        <label class="md-check p-r-xs">
-                          <input type="checkbox">
-                          <i></i>
-                        </label>
-                      </div>
-                      <div class="list-body col-xs">
-                        <a href="#" class="item-title _500">Iconography and illustration style sheet</a>
-                        <div class="text-muted text-xs">
-                          <i class="fa fa-clock-o"></i> 11:30 pm, 20 July
-                        </div>
-                        <div class="dropdown m-t-xs">
-                          <a href="#" data-toggle="dropdown">
-                            <span class="label success rounded dropdown-toggle">Completed</span>
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-accent"></i>Active
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-warn"></i>In progress
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-success"></i>Completed
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-muted"></i>Archived
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item row-col">
-                      <div class="col-xs">
-                        <label class="md-check p-r-xs">
-                          <input type="checkbox">
-                          <i></i>
-                        </label>
-                      </div>
-                      <div class="list-body col-xs">
-                        <a href="#" class="item-title _500">Design requirements documentation</a>
-                        <div class="text-muted text-xs">
-                          <i class="fa fa-clock-o"></i> 4:40 pm, 18 July
-                        </div>
-                        <div class="dropdown m-t-xs">
-                          <a href="#" data-toggle="dropdown">
-                            <span class="label success rounded dropdown-toggle">Completed</span>
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-accent"></i>Active
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-warn"></i>In progress
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-success"></i>Completed
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-muted"></i>Archived
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item row-col">
-                      <div class="col-xs">
-                        <label class="md-check p-r-xs">
-                          <input type="checkbox">
-                          <i></i>
-                        </label>
-                      </div>
-                      <div class="list-body col-xs">
-                        <a href="#" class="item-title _500">Project teammates video meeting</a>
-                        <div class="text-muted text-xs">
-                          <i class="fa fa-clock-o"></i> 12:30 pm, 5 July
-                        </div>
-                        <div class="dropdown m-t-xs">
-                          <a href="#" data-toggle="dropdown">
-                            <span class="label rounded dropdown-toggle">Archived</span>
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-accent"></i>Active
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-warn"></i>In progress
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-success"></i>Completed
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-muted"></i>Archived
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list-item row-col">
-                      <div class="col-xs">
-                        <label class="md-check p-r-xs">
-                          <input type="checkbox">
-                          <i></i>
-                        </label>
-                      </div>
-                      <div class="list-body col-xs">
-                        <a href="#" class="item-title _500">Kick-off meeting</a>
-                        <div class="text-muted text-xs">
-                          <i class="fa fa-clock-o"></i> 9:30 pm, 5 July
-                        </div>
-                        <div class="dropdown m-t-xs">
-                          <a href="#" data-toggle="dropdown">
-                            <span class="label rounded dropdown-toggle">Archived</span>
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-accent"></i>Active
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-warn"></i>In progress
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-success"></i>Completed
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              <i class="fa fa-circle-o text-muted"></i>Archived
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- / -->
-                </div>
-              </div>
-            </div>
-            <!-- / -->
-            <!-- footer -->
-            <div class="p-a b-t clearfix">
-              <div class="btn-group pull-right">
-                <a href="#" class="btn btn-xs white circle"><i class="fa fa-fw fa-angle-left"></i></a>
-                <a href="#" class="btn btn-xs white circle"><i class="fa fa-fw fa-angle-right"></i></a>
-              </div>
-              <span class="text-sm text-muted">Completed: <strong>10</strong>, In Progress: <strong>5</strong></span>
-            </div>
-            <!-- / -->
-          </div>
-        </div>
-        <div class="col-xs-5" id="detail">
-          <div class="row-col white b-r">
-            <div class="b-b">
-              <div class="navbar no-radius">
-
-                <!-- nabar right -->
-                <ul class="nav navbar-nav pull-right m-l">
-                  <li class="nav-item dropdown">
-                    <a class="nav-link">
-                      <span class="label warn rounded">
-                        24
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-                <!-- / navbar right -->
-
-                <a data-toggle="modal" data-target="#subnav" data-ui-modal class="navbar-item pull-left hidden-md-up">
-                  <span class="btn btn-sm btn-icon blue">
-                    <i class="fa fa-th"></i>
-                  </span>
-                </a>
-                <a data-toggle="modal" data-target="#list" data-ui-modal class="navbar-item pull-left hidden-md-up">
-                  <span class="btn btn-sm btn-icon btn-default">
-                    <i class="fa fa-list"></i>
-                  </span>
-                </a>
-                <span class="navbar-item text-md text-ellipsis">Activities</span>
-              </div>
-            </div>
-            <!-- flex content -->
-            <div class="row-row">
-              <div class="row-body scrollable hover">
-                <div class="row-inner">
-                  <!-- content -->
-                  <div class="p-a">
-                    <div class="streamline streamline-theme m-b">
-                      <div class="sl-item b-primary">
-                        <div class="sl-content">
-                          <div class="sl-date text-muted">Just now</div>
-                          <p>Finished task <a href="#" class="text-info">#features 4</a>.</p>
-                        </div>
-                      </div>
-                      <div class="sl-item b-success">
-                        <div class="sl-content">
-                          <div class="sl-date text-muted">11:30</div>
-                          <p><a href="#">@Jessi</a> uploaded a file <a href="#" class="text-info">documentation.pdf</a></p>
-                        </div>
-                      </div>
-                      <div class="sl-item b-info">
-                        <div class="sl-content">
-                          <div class="sl-date text-muted">10:30</div>
-                          <p>Call to customer <a href="#" class="text-info">Jacob</a> and discuss the detail.</p>
-                        </div>
-                      </div>
-                      <div class="sl-item b-warn">
-                        <div class="sl-content">
-                          <div class="sl-date text-muted">3 days ago</div>
-                          <p><a href="#" class="text-info">Jessi</a> commented your post.</p>
-                        </div>
-                      </div>
-                      <div class="sl-item b-warning">
-                        <div class="sl-content">
-                          <div class="sl-date text-muted">Thu, 10 Mar</div>
-                          <p><a href="#" class="text-info">Jessi</a> report a issue #2122.</p>
-                        </div>
-                      </div>
-                      <div class="sl-item">
-                        <div class="sl-content">
-                          <div class="sl-date text-muted">Sat, 5 Mar</div>
-                          <p>Prepare for presentation</p>
-                        </div>
-                      </div>
-                      <div class="sl-item">
-                        <div class="sl-content">
-                          <div class="sl-date text-muted">Sun, 11 Feb</div>
-                          <p><a href="#" class="text-info">Jessi</a> assign you a task <a href="#" class="text-info">Mockup Design</a>.</p>
-                        </div>
-                      </div>
-                      <div class="sl-item">
-                        <div class="sl-content">
-                          <div class="sl-date text-muted">Thu, 17 Jan</div>
-                          <p>Task created</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- / -->
-                </div>
-              </div>
-            </div>
-            <!-- footer -->
-            <div class="p-a p-y-sm b-t">
-
-            </div>
-            <!--  -->
-          </div>
-        </div>
-        <div class="col-xs w-80" id="sidenav">
-          <div class="row-col bg">
-            <!-- flex content -->
-            <div class="row-row">
-              <div class="row-body scrollable hover">
-                <div class="row-inner">
-                  <!-- content -->
-                  <div class="p-y text-center">
-                    <div>
-                      <a href="#" class="inline">
-                        <span class="circle w-40 avatar success">
-                          M
-                        </span>
-                      </a>
-                    </div>
-                    <div>
-                      <a href="#" class="inline">
-                        <span class="circle w-40 avatar info">
-                          RD
-                        </span>
-                      </a>
-                    </div>
-                    <div>
-                      <a href="#" class="inline">
-                        <span class="circle w-40 avatar">
-                          <img src="assets/images/a2.jpg" alt=".">
-                        </span>
-                      </a>
-                    </div>
-                    <div>
-                      <a href="#" class="inline">
-                        <span class="circle w-40 avatar">
-                          <img src="assets/images/a3.jpg" alt=".">
-                        </span>
-                      </a>
-                    </div>
-                    <div>
-                      <a href="#" class="inline">
-                        <span class="circle w-40 avatar grey">
-                          S
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- / -->
-            <!-- footer -->
-            <div class="p-y text-center">
-              <a href="#" class="md-btn md-mini md-fab primary"><i class="fa fa-plus"></i></a>
-            </div>
-            <!-- / -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ############ PAGE END-->
-
-  </div>
-
+			</div>
+		</div>
+	</div>
 </div>
