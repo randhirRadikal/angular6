@@ -10,7 +10,7 @@ export class UserService {
 
 	}
 
-	getUserDetails(){
+	getDashbordInfo(){
 		return this.http.get<any>(`${environment.apiClint}professionals/dashboardInfo`);
 	}
 
@@ -18,7 +18,8 @@ export class UserService {
 		return this.http.post(`${environment.apiClint}professionals/changePassword`, {"password":password});
 	}
 
-	updateProfile(user: User) {
+
+	updateProfile(user: any) {
         return this.http.post(`${environment.apiClint}/users/register`, user);
     }
 

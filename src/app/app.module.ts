@@ -26,6 +26,7 @@ import { InboxComponent } from './inbox';
 import { CreditsComponent } from './credits';
 import { CoursesComponent } from './courses';
 import { PatientComponent } from './patient';
+import { ForgotPasswordComponent } from './forgot_password';
 
 @NgModule({
     imports: [
@@ -49,7 +50,8 @@ import { PatientComponent } from './patient';
         DashboardComponent,
 		CreditsComponent,
 		CoursesComponent,
-		PatientComponent
+		PatientComponent,
+		ForgotPasswordComponent
     ],
     providers: [
         AuthGuard,

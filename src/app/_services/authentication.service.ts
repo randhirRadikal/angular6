@@ -28,6 +28,40 @@ export class AuthenticationService {
             }));
     }
 
+	register(user: any) {
+		let headers = new HttpHeaders({
+		    'Content-Type': 'application/json',
+		    'Authorization': "jkBDVMUQTIdrsVU1eQxy" });
+		let options = { headers: headers };
+        return this.http.post<any>(`${environment.apiClint}professionals/register`,
+			 	user,
+				options)
+            .pipe(map(user => {
+				if(user){
+					return user;
+				}else{
+					return false;
+				}
+            }));
+    }
+
+	forgotPassword(email: string) {
+		let headers = new HttpHeaders({
+		    'Content-Type': 'application/json',
+		    'Authorization': "jkBDVMUQTIdrsVU1eQxy" });
+		let options = { headers: headers };
+        return this.http.post<any>(`${environment.apiClint}professionals/forgotPassword`,
+			 	{ email: email },
+				options)
+            .pipe(map(user => {
+				if(user){
+					return user;
+				}else{
+					return false;
+				}
+            }));
+    }
+
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');

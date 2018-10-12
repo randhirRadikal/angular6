@@ -2,11 +2,15 @@
   <div class="navbar">
     <div class="pull-center">
       <!-- brand -->
-      <a href="index.html" class="navbar-brand">
-        <div data-ui-include="'images/logo.svg'"></div>
-        <img src="images/logo.png" alt="." class="hide">
-        <span class="hidden-folded inline">aside</span>
-      </a>
+	  <a [routerLink]="['/login']" class="navbar-brand">
+        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+          	<circle cx="24" cy="24" r="24" style="fill: rgba(120,130,140,0.7);"></circle>
+          	<circle cx="24" cy="0" r="2" fill="#ffffff" class="brand-animate"></circle>
+          	<text dy="10" x="50%" y="50%" text-anchor="middle" style="fill: #ffffff; stroke: none; font-size: 40px;">a</text>
+          </svg>
+        	<img src="assets/images/logo.png" alt="." class="hide">
+        	<span class="hidden-folded inline">aside</span>
+        </a>
       <!-- / brand -->
     </div>
   </div>
@@ -39,10 +43,41 @@
               <div *ngIf="f.retype_email.error.required">Retype email is required</div>
           </div>
         </div>
+		<div class="form-group">
+          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password"/>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
         <div class="form-group">
           <input type="text" formControlName="bcrn" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bcrn.errors }" placeholder="Brazilian Civilian Registration number"/>
           <div *ngIf="submitted && f.bcrn.errors" class="invalid-feedback">
               <div *ngIf="f.bcrn.errors.required">Brazilian Civilian Registration number is required</div>
+          </div>
+        </div>
+		<div class="form-group">
+          <input type="text" formControlName="complement" class="form-control" [ngClass]="{ 'is-invalid': complement && f.street.errors }" placeholder="Complement"/>
+          <div *ngIf="submitted && f.complement.errors" class="invalid-feedback">
+              <div *ngIf="f.complement.errors.required">Complement record is required</div>
+          </div>
+        </div>
+		<div class="form-group">
+          <input type="text" formControlName="professional_record" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.professional_record.errors }" placeholder="Professional record"/>
+          <div *ngIf="submitted && f.professional_record.errors" class="invalid-feedback">
+              <div *ngIf="f.professional_record.errors.required">Professional record is required</div>
+          </div>
+        </div>
+		<div class="form-group">
+          <input type="text" formControlName="street" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.street.errors }" placeholder="Street"/>
+          <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+              <div *ngIf="f.street.errors.required">Street record is required</div>
+          </div>
+        </div>
+		<div class="form-group">
+          <input type="text" formControlName="neighborhood" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.neighborhood.errors }" placeholder="Neighborhood"/>
+          <div *ngIf="submitted && f.neighborhood.errors" class="invalid-feedback">
+              <div *ngIf="f.neighborhood.errors.required">Neighborhood record is required</div>
           </div>
         </div>
 		<div class="form-group">
@@ -58,18 +93,12 @@
           </div>
         </div>
 		<div class="form-group">
-          <input type="text" formControlName="professional_record" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.professional_record.errors }" placeholder="Professional record"/>
-          <div *ngIf="submitted && f.professional_record.errors" class="invalid-feedback">
-              <div *ngIf="f.professional_record.errors.required">Professional record is required</div>
+          <input type="text" formControlName="zip" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" placeholder="Zip"/>
+          <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+              <div *ngIf="f.zip.errors.required">State is required</div>
           </div>
         </div>
-        <div class="form-group">
-          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password"/>
-          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-              <div *ngIf="f.password.errors.required">Password is required</div>
-              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-          </div>
-        </div>
+
         <div class="m-b-md text-sm">
           <span class="text-muted">Clicking on "Register" you agree to our Terms of Use</span>
         </div>

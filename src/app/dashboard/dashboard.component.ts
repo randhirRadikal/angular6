@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
     }
 
     private loadAllUsers() {
-        this.userService.getUserDetails().pipe(first()).subscribe(users => {
+        this.userService.getDashbordInfo().pipe(first()).subscribe(users => {
 			console.log(users);
             this.dashboard = users;
 			this.submitted = true;

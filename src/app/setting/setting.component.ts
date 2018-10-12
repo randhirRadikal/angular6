@@ -86,13 +86,10 @@ export class SettingComponent implements OnInit {
 			"email":this.user.email.value,
 			"image":this.selectedFile
 		};
-		console.log(data);
 		if(this.profileForm.invalid){
 			return;
 		}
 
-
-		return false;
 		this.userService.updateProfile(data).pipe(first()).subscribe(users => {
             console.log(users);
 			this.loading = false;

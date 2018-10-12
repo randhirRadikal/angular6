@@ -13,12 +13,14 @@ import { ProfileComponent } from './profile';
 import { SettingComponent } from './setting';
 import { CreditsComponent } from './credits';
 import { CoursesComponent } from './courses';
+import { ForgotPasswordComponent } from './forgot_password';
 import { AuthGuard } from './_guards';
 
 const appRoutes: Routes = [
     { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'forgot_password', component: ForgotPasswordComponent },
     { path: 'blank', component: BlankComponent, canActivate: [AuthGuard] },
     { path: 'patient', component: PatientComponent, canActivate: [AuthGuard] },
     { path: 'dashboard', component: ProjectComponent, canActivate: [AuthGuard] },

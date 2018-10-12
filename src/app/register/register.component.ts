@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AlertService, UserService } from '../_services';
+import { AlertService, AuthenticationService } from '../_services';
 
 @Component({templateUrl: 'register.component.html'})
 export class RegisterComponent implements OnInit {
@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private userService: UserService,
+        private userService: AuthenticationService,
         private alertService: AlertService) { }
 
     ngOnInit() {
@@ -43,6 +43,21 @@ export class RegisterComponent implements OnInit {
         }
 
         this.loading = true;
+		var data = {
+			name:this.f.first_name.value+"--"+this.f.last_name.value,
+			email:this.f.email.value,
+			password:this.f.password.value,
+			cpf:this.f.bcrn.value,
+			councilreg:this.f.professional_record.value,
+			zip:this.f.zip.value,
+			street:this.f.street.value,
+			number:this.f.professional_record.value,
+			complement:this.f.complement.value,
+			neighborhood:this.f.neighborhood.value,
+			city:this.f.city.value,
+			district:this.f.state.value
+		}
+		console.log(data);
         this.userService.register(this.registerForm.value)
             .pipe(first())
             .subscribe(

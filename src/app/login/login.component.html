@@ -2,11 +2,15 @@
   <div class="navbar">
     <div class="pull-center">
       <!-- brand -->
-      <a href="index.html" class="navbar-brand">
-        <div data-ui-include="'images/logo.svg'"></div>
-        <img src="images/logo.png" alt="." class="hide">
-        <span class="hidden-folded inline">aside</span>
-      </a>
+	  <a [routerLink]="['/login']" class="navbar-brand">
+        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+          	<circle cx="24" cy="24" r="24" style="fill: rgba(120,130,140,0.7);"></circle>
+          	<circle cx="24" cy="0" r="2" fill="#ffffff" class="brand-animate"></circle>
+          	<text dy="10" x="50%" y="50%" text-anchor="middle" style="fill: #ffffff; stroke: none; font-size: 40px;">a</text>
+          </svg>
+        	<img src="assets/images/logo.png" alt="." class="hide">
+        	<span class="hidden-folded inline">aside</span>
+        </a>
       <!-- / brand -->
     </div>
   </div>
@@ -52,7 +56,7 @@
         <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
       </form>
       <div class="m-y">
-        <a href="forgot-password.html" class="_600">Forgot password?</a>
+        <a [routerLink]="['/forgot_password']" class="_600">Forgot password?</a>
       </div>
       <div>
         Do not have an account?
