@@ -13,7 +13,6 @@ import { AlertComponent } from './_directives';
 import { AuthGuard } from './_guards';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertService, AuthenticationService, UserService } from './_services';
-import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { BlankComponent } from './blank';
@@ -24,6 +23,9 @@ import { ContactComponent } from './contact';
 import { ProfileComponent } from './profile';
 import { SettingComponent } from './setting';
 import { InboxComponent } from './inbox';
+import { CreditsComponent } from './credits';
+import { CoursesComponent } from './courses';
+import { PatientComponent } from './patient';
 
 @NgModule({
     imports: [
@@ -35,7 +37,6 @@ import { InboxComponent } from './inbox';
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent,
         LoginComponent,
         RegisterComponent,
         BlankComponent,
@@ -45,7 +46,10 @@ import { InboxComponent } from './inbox';
         ContactComponent,
         ProfileComponent,
         SettingComponent,
-        DashboardComponent
+        DashboardComponent,
+		CreditsComponent,
+		CoursesComponent,
+		PatientComponent
     ],
     providers: [
         AuthGuard,

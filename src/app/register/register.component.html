@@ -14,36 +14,53 @@
 <div class="b-t">
   <div class="center-block w-xxl w-auto-xs p-y-md text-center">
     <div class="p-a-md">
-      <div>
-        <a href="#" class="btn btn-block indigo text-white m-b-sm">
-          <i class="fa fa-facebook pull-left"></i>
-          Sign up with Facebook
-        </a>
-        <a href="#" class="btn btn-block red text-white">
-          <i class="fa fa-google-plus pull-left"></i>
-          Sign up with Google+
-        </a>
-      </div>
-      <div class="m-y text-sm">
-        OR
-      </div>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" placeholder="First Name"/>
-          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+          <input type="text" formControlName="first_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="First Name"/>
+          <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+              <div *ngIf="f.first_name.errors.required">First Name is required</div>
           </div>
         </div>
         <div class="form-group">
-          <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="Last Name"/>
-          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          <input type="text" formControlName="surnames" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.surnames.errors }" placeholder="Surnames"/>
+          <div *ngIf="submitted && f.surnames.errors" class="invalid-feedback">
+              <div *ngIf="f.surnames.errors.required">Surnames is required</div>
           </div>
         </div>
         <div class="form-group">
-          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Username"/>
-          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-              <div *ngIf="f.username.errors.required">Username is required</div>
+          <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="E-mail"/>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="email" formControlName="retype_email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.retype_email.errors }" placeholder="Re-enter email"/>
+          <div *ngIf="submitted && f.retype_email.errors" class="invalid-feedback">
+              <div *ngIf="f.retype_email.error.required">Retype email is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text" formControlName="bcrn" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bcrn.errors }" placeholder="Brazilian Civilian Registration number"/>
+          <div *ngIf="submitted && f.bcrn.errors" class="invalid-feedback">
+              <div *ngIf="f.bcrn.errors.required">Brazilian Civilian Registration number is required</div>
+          </div>
+        </div>
+		<div class="form-group">
+          <input type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" placeholder="City"/>
+          <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+              <div *ngIf="f.city.errors.required">City is required</div>
+          </div>
+        </div>
+		<div class="form-group">
+          <input type="text" formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" placeholder="State"/>
+          <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+              <div *ngIf="f.state.errors.required">State is required</div>
+          </div>
+        </div>
+		<div class="form-group">
+          <input type="text" formControlName="professional_record" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.professional_record.errors }" placeholder="Professional record"/>
+          <div *ngIf="submitted && f.professional_record.errors" class="invalid-feedback">
+              <div *ngIf="f.professional_record.errors.required">Professional record is required</div>
           </div>
         </div>
         <div class="form-group">
@@ -54,17 +71,14 @@
           </div>
         </div>
         <div class="m-b-md text-sm">
-          <span class="text-muted">By clicking Sign Up, I agree to the</span>
-          <a href="#">Terms of service</a>
-          <span class="text-muted">and</span>
-          <a href="#">Policy Privacy.</a>
+          <span class="text-muted">Clicking on "Register" you agree to our Terms of Use</span>
         </div>
         <button type="submit" [disabled]="loading" class="btn btn-lg black p-x-lg">Register</button>
         <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
 
       </form>
       <div class="p-y-lg text-center">
-        <div>Already have an account? <a [routerLink]="['/login']" class="text-primary _600">Sign in</a></div>
+        <div>Already have an account? <a [routerLink]="['/login']" class="text-primary _600">Log in</a></div>
       </div>
     </div>
   </div>

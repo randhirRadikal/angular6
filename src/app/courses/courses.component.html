@@ -1,0 +1,178 @@
+<div class="app-header white bg b-b">
+	  <div class="navbar" data-pjax>
+			<a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
+			  <i class="ion-navicon"></i>
+			</a>
+			<div class="navbar-item pull-left h5" id="pageTitle">OUR COURSES</div>
+	  </div>
+</div>
+<div class="app-body" style="padding-left:0px;">
+	<div class="app-body-inner">
+		<div class="row-col">
+			<div class="col-xs-3 w-xl modal fade aside aside-lg">
+				<div class="row-col black b-r bg">
+					<div class="b-b">
+						<div class="navbar no-radius">
+						    <!-- link and dropdown -->
+						    <ul class="nav navbar-nav">
+						        <li class="nav-item">
+						          	<span class="navbar-item text-md">Courses</span>
+						        </li>
+						    </ul>
+						    <!-- / link and dropdown -->
+						</div>
+					</div>
+			      	<!-- flex content -->
+			      	<div class="row-row">
+				      	<div class="row-body scrollable hover">
+					      	<div class="row-inner">
+					      		<!-- left content -->
+					      		<div class="list" data-ui-list="b-r b-2x b-theme">
+					      			<div class="list-item ">
+					      			    <div class="list-left">
+					      			        <span class="w-40 avatar circle lt">
+					      			            <span class="fa fa-apple text-md"></span>
+					      			        </span>
+					      			    </div>
+					      			    <div class="list-body">
+					      			          <div class="pull-right dropdown">
+					      			            <a href="javascrit:void(0);" data-toggle="dropdown" class="text-muted"><i class="fa fa-fw fa-ellipsis-h"></i></a>
+					      			            <div class="dropdown-menu pull-right text-color" role="menu">
+					      			              <a class="dropdown-item">
+					      			              	<i class="fa fa-tag"></i>
+					      			              	Tag item
+					      			              </a>
+					      			              <a class="dropdown-item">
+					      			              	<i class="fa fa-pencil"></i>
+					      			              	Edit item
+					      			              </a>
+					      			              <a class="dropdown-item">
+					      			              	<i class="fa fa-trash"></i>
+					      			              	Delete item
+					      			              </a>
+					      			              <div class="dropdown-divider"></div>
+					      			              <a class="dropdown-item">
+					      			              	<i class="fa fa-ellipsis-h"></i>
+					      			              	More action
+					      			              </a>
+					      			            </div>
+					      			          </div>
+					      			        <div class="item-title">
+					      			          <a href="javascrit:void(0);" (click)="selectCourses()" >IOS application</a>
+					      			        </div>
+					      			        <small class="block text-ellipsis">
+					      			          <span class="text-xs">
+					      			              5
+					      			          </span> <span class="text-muted">completed</span>
+					      			        </small>
+
+					      			        <div class="progress-xxs m-y-sm lter progress w-sm">
+					      			            <div class="progress-bar success" data-toggle="tooltip" title="Finished: 20%" style="width: 12%;">
+					      			            </div>
+					      			        </div>
+					      			    </div>
+					      			</div>
+					        	</div>
+					        	<!-- / -->
+					      	</div>
+					    </div>
+			      	</div>
+			      	<!-- / -->
+				    <!-- footer -->
+				    <div class="p-a b-t clearfix">
+				      	<div class="btn-group pull-right">
+				            <a href="javascrit:void(0);" class="btn btn-xs white circle"><i class="fa fa-fw fa-angle-left"></i></a>
+				            <a href="javascrit:void(0);" class="btn btn-xs white circle"><i class="fa fa-fw fa-angle-right"></i></a>
+				        </div>
+				      	<span class="text-sm text-muted">Total: <strong>1</strong></span>
+				    </div>
+				    <!-- / -->
+			    </div>
+			</div>
+			<div class="col-xs-4 modal fade aside aside-sm" *ngIf="courseId">
+				<div class="row-col b-r light lt">
+					<div class="b-b">
+						<div class="navbar no-radius">
+							<a data-ui-modal class="navbar-item pull-left hidden-xl-up hidden-sm-down">
+								<span class="btn btn-sm btn-icon blue">
+						      		<i class="fa fa-th"></i>
+						        </span>
+						    </a>
+						    <!-- link and dropdown -->
+						    <ul class="nav navbar-nav">
+						        <li class="nav-item">
+						          	<span class="navbar-item m-r-0 text-md">Course Details</span>
+						        </li>
+						        <li class="nav-item">
+							        <!-- <a class="nav-link">
+							            <span class="label rounded">
+							            	5
+							            </span>
+							        </a> -->
+							    </li>
+						    </ul>
+						    <!-- / link and dropdown -->
+						</div>
+					</div>
+			      	<!-- flex content -->
+			      	<div class="row-row">
+				      	<div class="row-body scrollable hover">
+					      	<div class="row-inner">
+					      		<!-- content -->
+					      		<div class="list" data-ui-list="b-r b-2x b-theme">
+					      			<div class="list-item row-col">
+					      				<div class="list-body col-xs">
+					      					<a href="javascrit:void(0);" class="item-title _500">Kick-off meeting</a>
+					      					<div class="text-muted text-xs">
+					      						<i class="fa fa-clock-o"></i> 9:30 pm, 5 July
+					      					</div>
+					      					<div class="dropdown m-t-xs">
+					      						<a href="javascrit:void(0);" data-toggle="dropdown">
+					      							<span class="label rounded dropdown-toggle">Archived</span>
+					      						</a>
+					      						<div class="dropdown-menu">
+					      							<a class="dropdown-item" href="javascrit:void(0);">
+					      								<i class="fa fa-circle-o text-accent"></i>Active
+					      							</a>
+					      							<a class="dropdown-item" href="javascrit:void(0);">
+					      								<i class="fa fa-circle-o text-warn"></i>In progress
+					      							</a>
+					      							<a class="dropdown-item" href="javascrit:void(0);">
+					      								<i class="fa fa-circle-o text-success"></i>Completed
+					      							</a>
+					      							<a class="dropdown-item" href="javascrit:void(0);">
+					      								<i class="fa fa-circle-o text-muted"></i>Archived
+					      							</a>
+					      						</div>
+					      					</div>
+					      				</div>
+					      			</div>
+					        	</div>
+					        	<!-- / -->
+					      	</div>
+					    </div>
+			      	</div>
+			      	<!-- / -->
+				    <!-- footer -->
+				    <div class="p-a b-t clearfix">
+				      	<div class="btn-group pull-right">
+				            <a href="javascrit:void(0);" class="btn btn-xs white circle"><i class="fa fa-fw fa-angle-left"></i></a>
+				            <a href="javascrit:void(0);" class="btn btn-xs white circle"><i class="fa fa-fw fa-angle-right"></i></a>
+				        </div>
+				      	<span class="text-sm text-muted">Completed: <strong>10</strong>, In Progress: <strong>5</strong></span>
+				    </div>
+				    <!-- / -->
+			    </div>
+			</div>
+			<div class="col-xs-4" *ngIf="!courseId">
+
+			</div>
+			<div class="col-xs-5" id="detail">
+				<div class="row-col white b-r">
+
+
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>

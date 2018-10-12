@@ -6,13 +6,14 @@ import { first } from 'rxjs/operators';
 import { User } from '../_models';
 import { UserService } from '../_services';
 
-@Component({templateUrl: 'dashboard.component.html'})
-export class DashboardComponent implements OnInit {
+@Component({templateUrl: 'courses.component.html'})
+export class CoursesComponent implements OnInit {
     currentUser: User;
-    dashboard: any;
+    users: User[] = [];
     isUserLogin=false;
     searchForm: FormGroup;
     submitted= false;
+	courseId = false;
 
     constructor(private userService: UserService,  private formBuilder: FormBuilder,) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -33,11 +34,13 @@ export class DashboardComponent implements OnInit {
         });
     }
 
+	selectCourses(){
+		this.courseId = true;
+	}
+
     private loadAllUsers() {
-        this.userService.getUserDetails().pipe(first()).subscribe(users => {
-			console.log(users);
-            this.dashboard = users;
-			this.submitted = true;
+        this.userService.getAll().pipe(first()).subscribe(users => {
+            this.users = users;
         });
     }
 

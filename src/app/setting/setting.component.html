@@ -7,19 +7,10 @@
         <div class="nav-active-border left b-primary">
           <ul class="nav nav-sm">
             <li class="nav-item">
-              <a class="nav-link block active" href="#" data-toggle="tab" data-target="#tab-1">Profile</a>
+              <a class="nav-link block active" href="#" data-toggle="tab" data-target="#tab-1">My data</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link block" href="#" data-toggle="tab" data-target="#tab-2">Account Settings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link block" href="#" data-toggle="tab" data-target="#tab-3">Emails</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link block" href="#" data-toggle="tab" data-target="#tab-4">Notifications</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link block" href="#" data-toggle="tab" data-target="#tab-5">Security</a>
+              <a class="nav-link block" href="#" data-toggle="tab" data-target="#tab-2">Change Password</a>
             </li>
           </ul>
         </div>
@@ -28,27 +19,36 @@
     <div class="col-sm-9 col-lg-10 light bg">
       <div class="tab-content pos-rlt">
         <div class="tab-pane active" id="tab-1">
-          <div class="p-a-md b-b _600">Public profile</div>
-          <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="p-a-md col-md-6">
+          <div class="p-a-md b-b _600">My data</div>
+          <form [formGroup]="profileForm" (ngSubmit)="onUpload()" class="p-a-md col-md-6">
             <div class="form-group">
               <label>Profile picture</label>
               <div class="form-file">
-                <input type="file">
+                <input type="file" (change)="onFileChanged($event)">
                 <button class="btn white">Upload new picture</button>
               </div>
             </div>
-            <div class="form-group">
-              <label>First Name</label>
-              <input type="text" class="form-control">
-            </div>
-            <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" class="form-control">
-            </div>
-            <div class="form-group">
-              <label>URL</label>
-              <input type="text" class="form-control">
-            </div>
+			<div class="form-group">
+				<label>First Name</label>
+	          	<input type="text" formControlName="first_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="First Name"/>
+	          	<div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+	              	<div *ngIf="f.first_name.errors.required">First Name is required</div>
+	          	</div>
+	        </div>
+	        <div class="form-group">
+				<label>Surnames</label>
+	          	<input type="text" formControlName="surnames" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.surnames.errors }" placeholder="Surnames"/>
+	          	<div *ngIf="submitted && f.surnames.errors" class="invalid-feedback">
+	              	<div *ngIf="f.surnames.errors.required">Surnames is required</div>
+	          	</div>
+	        </div>
+	        <div class="form-group">
+				<label>Email</label>
+	          	<input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="E-mail"/>
+	          	<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+	              	<div *ngIf="f.email.errors.required">Email is required</div>
+	          	</div>
+	        </div>
             <div class="form-group">
               <label>Company</label>
               <input type="text" class="form-control">
@@ -66,106 +66,35 @@
           </form>
         </div>
         <div class="tab-pane" id="tab-2">
-          <div class="p-a-md b-b _600">Account settings</div>
-          <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="p-a-md col-md-6">
+          <div class="p-a-md b-b _600">Change Password</div>
+          <form [formGroup]="searchForm" (ngSubmit)="changePassword()" class="p-a-md col-md-6">
             <div class="form-group">
-              <label>Client ID</label>
-              <input type="text" disabled class="form-control" value="d6386c0651d6380745846efe300b9869">
+              <label>Current password</label>
+              <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+			  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+	              <div *ngIf="f.password.errors.required">Old password is required</div>
+	          </div>
             </div>
             <div class="form-group">
-              <label>Secret Key</label>
-              <input type="text" disabled class="form-control" value="3f9573e88f65787d86d8a685aeb4bd13">
+              <label>New password</label>
+              <input type="password" class="form-control" formControlName="new_password" [ngClass]="{ 'is-invalid': submitted && f.new_password.errors }" >
+			  <div *ngIf="submitted && f.new_password.errors" class="invalid-feedback">
+	              <div *ngIf="f.new_password.errors.required">New password is required</div>
+	          </div>
             </div>
             <div class="form-group">
-              <label>App Name</label>
-              <input type="text" class="form-control">
+              <label>Re-enter the new password</label>
+              <input type="password" class="form-control" formControlName="confirm_password" [ngClass]="{ 'is-invalid': submitted && f.confirm_password.errors }">
+			  <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+	              <div *ngIf="f.confirm_password.errors.required">Re-enter the new password is required</div>
+	          </div>
+			  <div *ngIf="newPasswordNotMatch" class="invalid-feedback">
+				  <div>New Password and Re-enter new password not match.</div>
+			  </div>
             </div>
-            <div class="form-group">
-              <label>App URL</label>
-              <input type="text" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-info m-t">Update</button>
+            <button type="submit" [disabled]="loading" class="btn btn-info m-t">Update</button>
+			<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
           </form>
-        </div>
-        <div class="tab-pane" id="tab-3">
-          <div class="p-a-md b-b _600">Emails</div>
-          <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="p-a-md col-md-6">
-            <p>E-mail me whenever</p>
-            <div class="checkbox">
-              <label class="ui-check">
-                <input type="checkbox"><i class="dark-white"></i> Anyone posts a comment
-              </label>
-            </div>
-            <div class="checkbox">
-              <label class="ui-check">
-                <input type="checkbox"><i class="dark-white"></i> Anyone follow me
-              </label>
-            </div>
-            <div class="checkbox">
-              <label class="ui-check">
-                <input type="checkbox"><i class="dark-white"></i> Anyone send me a message
-              </label>
-            </div>
-            <div class="checkbox">
-              <label class="ui-check">
-                <input type="checkbox"><i class="dark-white"></i> Anyone invite me to group
-              </label>
-            </div>
-            <button type="submit" class="btn btn-info m-t">Update</button>
-          </form>
-        </div>
-        <div class="tab-pane" id="tab-4">
-          <div class="p-a-md b-b _600">Notifications</div>
-          <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="p-a-md col-md-6">
-            <p>Notice me whenever</p>
-            <div class="checkbox">
-              <label class="ui-check">
-                <input type="checkbox"><i class="dark-white"></i> Anyone seeing my profile page
-              </label>
-            </div>
-            <div class="checkbox">
-              <label class="ui-check">
-                <input type="checkbox"><i class="dark-white"></i> Anyone follow me
-              </label>
-            </div>
-            <div class="checkbox">
-              <label class="ui-check">
-                <input type="checkbox"><i class="dark-white"></i> Anyone send me a message
-              </label>
-            </div>
-            <div class="checkbox">
-              <label class="ui-check">
-                <input type="checkbox"><i class="dark-white"></i> Anyone invite me to group
-              </label>
-            </div>
-            <button type="submit" class="btn btn-info m-t">Update</button>
-          </form>
-        </div>
-        <div class="tab-pane" id="tab-5">
-          <div class="p-a-md b-b _600">Security</div>
-          <div class="p-a-md">
-            <div class="clearfix m-b-lg">
-              <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="col-md-6 p-a-0">
-                <div class="form-group">
-                  <label>Old Password</label>
-                  <input type="password" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>New Password</label>
-                  <input type="password" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>New Password Again</label>
-                  <input type="password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-info m-t">Update</button>
-              </form>
-            </div>
-
-            <p><strong>Delete account?</strong></p>
-            <button type="submit" class="btn btn-danger m-t" data-toggle="modal" data-target="#modal">Delete Account</button>
-
-          </div>
         </div>
       </div>
     </div>
